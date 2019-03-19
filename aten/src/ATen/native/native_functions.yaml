@@ -544,6 +544,7 @@
   matches_jit_signature: True
   cpu_half: True
   cpu_bool: True
+  cuda_bool: True
   dispatch:
     CPU: _s_copy__cpu
     CUDA: _s_copy__cuda
@@ -551,6 +552,8 @@
 - func: _s_copy_from(Tensor self, Tensor dst, bool non_blocking=False) -> Tensor
   matches_jit_signature: True
   cpu_half: True
+  cpu_bool: True
+  cuda_bool: True
   dispatch:
     CUDA: _s_copy_from_cuda
 
@@ -558,6 +561,7 @@
   matches_jit_signature: True
   cpu_half: True
   cpu_bool: True
+  cuda_bool: True
   dispatch:
     CPU: _copy_same_type__cpu
 
@@ -831,6 +835,7 @@
   matches_jit_signature: True
   cpu_half: True
   cpu_bool: True
+  cuda_bool: True
   dispatch:
     CPU: empty_cpu
     CUDA: empty_cuda
@@ -841,6 +846,7 @@
   matches_jit_signature: True
   variants: method
   cpu_bool: True
+  cuda_bool: True
   cpu_half: True
   device_guard: False
   dispatch:
@@ -861,6 +867,8 @@
 
 - func: empty_strided(int[] size, int[] stride, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None) -> Tensor
   cpu_half: True
+  cpu_bool: True
+  cuda_bool: True
   matches_jit_signature: True
   dispatch:
     CPU: empty_strided_cpu
@@ -3015,6 +3023,7 @@
   matches_jit_signature: True
   cpu_half: True
   cpu_bool: True
+  cuda_bool: True
   dispatch:
     CPU: _local_scalar_dense_cpu
     CUDA: _local_scalar_dense_cuda
@@ -3136,6 +3145,8 @@
 - func: is_set_to(Tensor self, Tensor tensor) -> bool
   matches_jit_signature: True
   variants: method
+  cpu_bool: True
+  cuda_bool: True
   device_guard: False
 
 - func: masked_fill_(Tensor(a!) self, Tensor mask, Scalar value) -> Tensor(a!)
